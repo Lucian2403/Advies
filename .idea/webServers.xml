@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="fdc11f34-ac59-4342-b410-44f07e7f6754" name="advies" url="http://best4uacademy.nl">
+        <fileTransfer host="best4uacademy.nl" port="21" rootFolder="/domains/best4uacademy.nl/public_html/test3">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

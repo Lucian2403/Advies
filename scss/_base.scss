@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:300,400,500,700,900');
+
+//COLORS
+
+$color-primary: #6bc048;
+$color-hover: #8ecf74;
+$color-light-grey: #f8f9fa;
+$color-grey-text: #dee2e6;
+$color-grey: #495057;
+$color-dark-grey: #343a40;
+
+//RESPONSIVE DESIGN MIXIN
+// MEDIA QUERY MANAGER
+
+/*
+0 - 600px:      Phone
+600 - 782px:    Tablet portrait small
+782 - 900px:    Tablet portrait
+900 - 1200px    Tablet landscape
+[1200 - 1800] is where our normal styles apply
+2100px +        Big desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-port-small
+- tab-land
+- big-desktop
+
+
+1em = 16px;
+em for 600px is (600/16) = 37.5em
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) { @content };    //600px;
+  }
+
+  @if $breakpoint == tab-port-small  {
+    @media only screen and (max-width: 48.875em) { @content };     //782px;
+  }
+
+  @if $breakpoint == tab-port  {
+    @media only screen and (max-width: 56.25em) { @content };     //900px;
+  }
+
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) { @content };    //1200px;
+  }
+
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 131.25em) { @content };    //2100px;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+//TYPOGRAPHY
+html {
+  //This define what 1rem is
+  font-size: 62.5%;   //1rem = 10px; 10px/16px = 62.5%
+  font-family: 'Merriweather Sans', sans-serif;
+
+  // RESPONSIVE MEDIA
+  @include respond(tab-port) {
+    font-size: 56.25%;   //1rem = 9px, 9/16 = 56.25%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%;     //1rem = 12, 12/16 = 75%
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 4.5rem;
+}
+h2 {
+  font-size: 3.2rem;
+}
+h3 {
+  font-size: 2.3rem;
+}
+p {
+  line-height: 3rem;
+  font-size: 1.6rem;
+  color: $color-grey;
+  strong {
+    margin: 1rem 0 4rem 0;
+    display: block;
+    color: $color-dark-grey;
+  }
+
+  @include respond(tab-land) {
+    font-size: 1.8rem;
+  }
+}
+
+//GLOBAL
+.site-content {
+  margin-top: 20rem;
+}
+
+.container{
+  max-width: 120rem;
+  width: 100%;
+  margin: 0 auto;
+
+  @include respond(big-desktop) {
+    max-width: 115rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @include respond(tab-land) {
+    max-width: 90rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  //@include  respond(tab-port) {
+  //  max-width: 85rem;
+  //  width: 100%;
+  //  margin: 0 auto;
+  //}
+
+  @include respond(tab-port-small) {
+    max-width: 85rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @include respond(phone) {
+    max-width: 50rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+#wpadminbar {
+  @include respond(phone) {
+    position: fixed;
+  }
+}
+
+.button {
+  text-decoration: none;
+  font-size: 1.6rem !important;
+  padding: 1.5rem 6rem;
+
+  transition: .3s;
+}
+
+.button_primary,
+.button_primary:visited {
+  background-color: $color-primary;
+  color: $color-light-grey;
+  border-radius: 3rem;
+
+  &:hover {
+  background-color: $color-hover;
+  }
+}
+
+.button_secondary,
+.button-secondary:visited {
+  color: $color-dark-grey;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-light-grey;
+    border-radius: .3rem;
+  }
+}

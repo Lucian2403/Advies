@@ -1,0 +1,205 @@
+.container_nav {
+  position: fixed;
+  width: 100%;
+  background-color: #FFFFFF;
+  top: 0;
+  -webkit-box-shadow: 0 1rem 2rem rgba(black, .2);
+  box-shadow: 0 1rem 2rem rgba(black, .2);
+  padding: 0 3rem;
+
+  z-index: 20;
+
+  @include respond(tab-land) {
+    height: 13rem;
+    padding: 0;
+  }
+
+  @include respond(phone) {
+
+  }
+
+  .container {
+    @include respond(tab-land) {
+      max-width: 100%;
+    }
+  }
+
+  .logo {
+    padding: 1rem 4rem;
+    transform: scale(.8);
+    transform-origin: left;
+
+    width: 50%;
+
+    @include respond(tab-land) {
+      transform: scale(1.2);
+      padding: 1.8rem;
+      width: 0;
+    }
+
+    .logo_desktop {
+      width: 100%;
+      height: 8rem;
+      background-repeat: no-repeat;
+
+      @include respond(tab-land) {
+        display: none;
+      }
+    }
+
+    .logo_mobile {
+      display: none;
+
+      @include respond(tab-land) {
+        display: inline-block;
+        width: 30rem;
+        height: 3rem;
+        background-repeat: no-repeat;
+        background-position: left;
+      }
+
+      @include respond(phone) {
+        width: 30rem;
+      }
+    }
+  }
+}
+
+.header_items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .tel_number {
+    display: none;
+
+    @include respond(tab-land) {
+      display: inline-block;
+      a,
+      a:visited {
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+        list-style: none;
+        font-size: 1.7rem;
+        padding: 2rem 4rem;
+        color: $color-light-grey;
+        background-color: $color-primary;
+        border-bottom: 2px solid $color-primary;
+
+        @include respond(phone) {
+          background-color: transparent;
+          border-bottom: none;
+          padding: 2rem 1rem;
+        }
+      }
+    }
+
+    @include respond(phone) {
+      background-color: $color-dark-grey;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__text {
+      display: none;
+      @include respond(phone) {
+        display: inline-block;
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+        list-style: none;
+        font-size: 1.7rem;
+        padding: 2rem 1rem;
+        color: $color-light-grey;
+      }
+    }
+  }
+  @include respond(tab-land) {
+    display: block;
+
+    .main-navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      border-top: 1px solid $color-grey;
+
+      .menu-item {
+        padding: 2rem 0;
+        a {
+          padding: 2rem;
+
+          @include respond(phone) {
+            padding: 1.6rem;
+          }
+        }
+      }
+
+      @include respond(phone) {
+        display: block;
+      }
+    }
+  }
+}
+
+.logged-in {
+  .container_nav {
+    top: 32px;
+
+    @include respond(tab-port-small) {
+      top: 46px;
+    }
+  }
+}
+
+
+.menu-navbar-container{
+  @include respond(phone) {
+    overflow: auto;
+    white-space: nowrap;
+  }
+  .navbar {
+    display: flex;
+
+    list-style: none;
+    font-size: 1.6rem;
+
+    @include respond(phone) {
+      font-size: 1.8rem;
+    }
+
+    li.menu-item {
+
+      &:not(:last-child) {
+        margin-right: 3rem;
+
+        @include respond(tab-land) {
+          margin-right: 0;
+        }
+      }
+
+      a,
+      a:visited {
+        text-decoration: none;
+        color: $color-grey;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+
+      &.current-menu-item {
+        > a {
+          color: $color-primary;
+        }
+
+        @include respond(tab-land) {
+          > a {
+            color: $color-grey;
+            border-bottom: 2px solid $color-primary;
+          }
+        }
+      }
+    }
+  }
+}

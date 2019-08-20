@@ -1,0 +1,77 @@
+.page_info {
+  margin-bottom: 15rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+
+  @include respond(tab-port-small) {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text_container {
+    padding: 0 15rem 0 5rem;
+
+    @include respond(tab-port-small) {
+      padding: 0 5rem;
+    }
+  }
+
+  .gform_wrapper {
+
+    .gform_fields{
+      margin-top: 6rem;
+      .gfield_label {
+        font-size: 1.6rem;
+        color: $color-grey;
+        font-weight: 300;
+      }
+
+      .medium {
+        padding: .5rem .2rem;
+        width: 25rem;
+        color: $color-grey;
+        font-weight: 300;
+        font-size: 1.4rem;
+      }
+    }
+    .gform_button,
+    .gform_button:visited {
+      background-color: $color-primary;
+      color: $color-light-grey;
+      border-radius: .5rem;
+      border-style: none;
+
+      &:hover {
+        background-color: $color-hover;
+        cursor: pointer;
+      }
+    }
+
+    @include respond(tab-port-small) {
+
+    }
+  }
+}
+
+/////Other pages
+.default-page_info {
+  padding-bottom: 8rem;
+  .the_title {
+    text-align: center;
+    margin: 3rem 0;
+    font-size: 3rem;
+
+    span {
+      font-size: 2rem;
+      font-style: italic;
+      color: $color-primary;
+    }
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+}
